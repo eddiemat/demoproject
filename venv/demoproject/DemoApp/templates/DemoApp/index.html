@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> Wellcome to index template </h2>
+<br>
+ <p>{{project.title}}</p> 
+ <br>
+ {{project.description}}
+ <br>
+ <p>{{project.created}}</p> 
+ <br>
+ {{project.demo_link}}
+ <br>
+ <p>{{project.source_link}}</p> 
+ <br>
+ <p>{{project.vote_total}}</p>
+ <br>
+ <p>{{project.vote_ratio}}</p>
+ <br>
+ <p>{{project.description}}</p>
+
+{% endblock content %}

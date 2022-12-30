@@ -1,0 +1,67 @@
+
+  {% extends 'base.html' %}
+  {% block content %}
+  
+  <h1>this is dashboard </h1>
+  <h1>{{text}}</h1>
+
+ {% if number > 20 %}
+ <h3> the number is greater than </h3>
+
+ {% elif number ==  20 %}
+ <h4>the number is equal to 20</h4>
+ {% else %}
+ <h3>the number is less </h3>
+
+ {% endif %}
+ <hr>
+
+ <h1>list of Projects shown bellow </h1>
+ <ul>
+
+ {% for project in projects %}
+
+<li>project details: <a href="/index/{{project.id}}"> {{project.title}}</a> --- <a href="{% url 'index' project.id %}">{{project.description}}</a></li>
+  
+ {% endfor %}
+
+ </ul>
+
+ <hr>
+ <table>
+  <tr>
+      <th>ID (Key)</th>
+      <td>Title</td>
+      <th>Descriptions</th>
+  </tr>
+  {% for x in projects %}
+  <tr>
+      <td>{{x.id}}</td>
+      <td>{{x.title}}</td>
+      <td>{{x.description}}</td>
+  </tr>
+ {% endfor %}
+ </table>
+<br><hr>
+ <table>
+    <tr>
+        <td>Title</td>
+        <th>Descriptions</th>
+        <th>Created</th>
+    </tr>
+    {% for x in object %}
+    <tr>
+        <td>{{x.title}}</td>
+        <td>{{x.description}}</td>
+        <td>{{x.created}}</td>
+        <td><a href="{% url 'update-project' x.id %}">Edit</a></td>
+        <td><a href="{% url 'index' x.id %}">View</a></td>
+        <td><a href="{% url 'delete-project' x.id %}">Delete</a></td>
+        
+    </tr>
+   {% endfor %}
+   </table>
+
+
+  {% endblock content %}
+
